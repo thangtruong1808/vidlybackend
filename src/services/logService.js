@@ -3,7 +3,7 @@ import { BrowserTracing } from "@sentry/tracing";
 
 function init() {
 	Sentry.init({
-		dsn: "https://4edb3f44507c4dca84c4397627213649@o1134936.ingest.sentry.io/6183413",
+		dsn: "https://876868fb4fec454db535ab3ddc2e96fc@o1135048.ingest.sentry.io/6183571",
 		integrations: [new BrowserTracing()],
 
 		// Set tracesSampleRate to 1.0 to capture 100%
