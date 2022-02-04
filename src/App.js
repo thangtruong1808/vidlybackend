@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Switch, Redirect } from "react-router-dom";
+import Movies from "./component/movies";
+import MovieForm from "./component/movieForm";
+import Customers from "./component/customers";
+import NotFound from "./component/notFound";
+import Rentals from "./component/rentals";
+import NavBar from "./component/common/navbar";
+import LoginForm from "./component/loginForm";
+import RegisterForm from "./component/registerForm";
+import FetchingData from "./component/fetchingData";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<React.Fragment>
+			<NavBar />
+			<main className="container">
+				<Switch>
+					<Route path="/login" component={LoginForm} />
+					<Route path="/register" component={RegisterForm} />
+					<Route path="/fetching" exact component={FetchingData} />
+					<Route path="/movies/:id" component={MovieForm} />
+					<Route path="/movies" component={Movies}></Route>
+					<Route path="/customers" component={Customers}></Route>
+					<Route path="/not-found" component={NotFound}></Route>
+					<Route path="/rentals" component={Rentals}></Route>
+					<Redirect from="/" exact to="/movies" />
+					<Redirect to="/not-found" />
+				</Switch>
+			</main>
+		</React.Fragment>
+	);
 }
-
 export default App;
